@@ -2,10 +2,12 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 
 
 def substrings(string, dictionary)
-	# test = dictionary.find_all {|word| string.scan(/#{word}/)}
+	list_of_matches = []
+	dictionary.each do |word|
+		list_of_matches += string.downcase.scan(word)
+	end
 
-
-	dictionary.reduce(Hash.new(0)) do |hash, key|
+	list_of_matches.reduce(Hash.new(0)) do |hash, key|
 		hash[key] += 1
 		hash
 	end
